@@ -14,28 +14,29 @@ import virus5 from './assets/virus5.png';
 // Styles
 import './app.scss';
 
-// TODO: Localstorage helper implementation
-
 const App = () => {
 	const [status, setStatus] = React.useState('Start');
 	const [currentTime, setcurrentTime] = useState(60000);
 	const [gameLevel, setgameLevel] = useState(1000);
 	const [score, setScore] = React.useState(0);
 	const [highScore, setHighScore] = useState(0);
+	const [level, setLevel] = useState('NEWBIE');
 	const [timerId, setTimerId] = useState('null');
 
 	const squares = document.querySelectorAll('.square');
+	const images = document.querySelectorAll('.virus-img');
 
 	// Hook Mousemove Position
 	const { clientX, clientY } = useMousePosition();
 
 	useEffect(() => {
-		const dataR = readData();
+		const dataR = readData('killvir');
 		setHighScore(dataR);
+		handleLevel(dataR);
 	}, []);
 
 	const getRamdom = () => {
-		return Math.floor(Math.random() * (12 - 1) + 1);
+		return Math.floor(Math.random() * 12) + 1;
 	};
 
 	const ramdomSquare = () => {
@@ -48,6 +49,10 @@ const App = () => {
 			} else {
 				square.classList.remove('virus');
 			}
+		});
+
+		images.forEach((image) => {
+			image.classList.remove('strike');
 		});
 	};
 
@@ -64,20 +69,29 @@ const App = () => {
 		);
 	};
 
+	const handleLevel = (dataR) => {
+		dataR > 50 && setLevel('AVERAGE');
+		dataR > 60 && setLevel('ADVANCED');
+		dataR > 72 && setLevel('EXPERT');
+		dataR > 90 && setLevel('GURU');
+	};
+
 	const handleData = () => {
-		const dataR = readData();
+		const dataName = 'killvir';
+		const dataR = readData('killvir');
 		setHighScore(dataR);
-		score > dataR && writeData({ score });
+		score > dataR && writeData({ dataName, score });
 		score > dataR && setHighScore(score);
+		handleLevel(score);
 	};
 
 	const stopGame = () => {
 		setcurrentTime(0);
+		handleData();
 		clearInterval(timerId);
 		playAudio('audio-end');
 		setStatus('Start');
 		stopAudio('audio-game');
-		handleData();
 		squares.forEach((square) => {
 			square.classList.remove('virus');
 		});
@@ -88,9 +102,16 @@ const App = () => {
 		currentTime === 0 && stopGame();
 	}, [currentTime]);
 
+	const handleStrike = () => {
+		images.forEach((image) => {
+			image.classList.add('strike');
+		});
+	};
+
 	const handleScore = () => {
 		setScore((score) => score + 1);
 		playAudio('audio-fire');
+		handleStrike();
 	};
 
 	const playAudio = (e) => {
@@ -131,61 +152,126 @@ const App = () => {
 				<div className='level'>
 					<label>Game LEVEL: </label>
 					<select onChange={(e) => setgameLevel(e.target.value)}>
-						<option value='1000'>Easy: 1000ms</option>
-						<option value='800'>Medium: 800ms</option>
-						<option value='600'>High: 600ms</option>
-						<option value='400'>Pro: 400ms</option>
+						<option value='1000'>NEWBIE: 1000ms</option>
+						<option value='900'>AVERAGE: 900ms s51</option>
+						<option value='800'>ADVANCED: 800ms s61</option>
+						<option value='650'>EXPERT: 650ms s73</option>
+						<option value='500'>GURU: 500ms s91</option>
 					</select>
 				</div>
 				<h2 className='rules' onClick={playGame}>
 					<span>
 						Rules: <br />
 						Click or Tap over the virus <br />
-						to KILL it
+						to vaporize it
 					</span>
 				</h2>
 
 				<h2 className='high-score' onClick={playGame}>
-					<span>{`High Score: ${highScore}`}</span>
+					<span>{`Your high score: `}</span>
+					<b>{highScore}</b>
+					<br />
+					<span>{`Your level: `}</span>
+					<b>{level}</b>
 				</h2>
 			</div>
 
 			<div className='grid'>
 				<div className='square' id='1'>
-					<img src={virus} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='2'>
-					<img src={virus4} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus4}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='3'>
-					<img src={virus2} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus2}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='4'>
-					<img src={virus} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='5'>
-					<img src={virus3} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus3}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='6'>
-					<img src={virus} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='7'>
-					<img src={virus2} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus2}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='8'>
-					<img src={virus} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='9'>
-					<img src={virus5} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus5}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='10'>
-					<img src={virus3} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus3}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='11'>
-					<img src={virus} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 				<div className='square' id='12'>
-					<img src={virus4} alt='' onClick={handleScore}></img>
+					<img
+						className='virus-img'
+						src={virus4}
+						alt=''
+						onClick={handleScore}
+					></img>
 				</div>
 			</div>
 

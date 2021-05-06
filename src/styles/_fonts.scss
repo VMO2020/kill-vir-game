@@ -1,0 +1,34 @@
+// VARIABLE ---------------------------------------------------------
+// ROBOTO FLEX v: font-family: 'Roboto Flex', sans-serif;
+@font-face {
+	font-family: 'Roboto Flex';
+	src: local
+	('../fonts/Roboto_Flex_v/RobotoFlex[slnt\,wdth\,wght\,opsz]-temp.ttf') format('woff2 supports variations'), 
+	('../fonts/Roboto_Flex_v/RobotoFlex[slnt\,wdth\,wght\,opsz].ttf') format('woff2-variations');
+	font-weight: 100 1000;
+	font-stretch: 25% 151%;
+	font-display: swap;
+}
+
+// FIXED ---------------------------------------------------------
+/* poppins-regular - latin */
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	src: local
+		('../fonts/Poppins/Poppins-Regular.ttf'),
+		('../fonts/Poppins/Poppins-Light.ttf'),
+		('../fonts/Poppins/Poppins-Thin.ttf'),
+		('../fonts/Poppins/Poppins-Medium.ttf'),
+		('../fonts/Poppins/Poppins-MediumItalic.ttf'),
+		('../fonts/Poppins/Poppins-Italic.ttf'),
+		('../fonts/Poppins/Poppins-Bold.ttf'),
+		('../fonts/Poppins/Poppins-BoldItalic.ttf');
+	font-display: swap;
+		
+}
+
+
+
+
