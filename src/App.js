@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import useMousePosition from './hooks/useMousePosition';
 
+// Components
+import { Share } from './components/Share';
+
 // Helpers
 import { readData, writeData } from './helpers/localData';
 
@@ -150,7 +153,7 @@ const App = () => {
 				style={status === 'Stop' ? { display: 'none' } : { display: 'flex' }}
 			>
 				<div className='level'>
-					<label>Game LEVEL: </label>
+					<label>LEVEL: </label>
 					<select onChange={(e) => setgameLevel(e.target.value)}>
 						<option value='1000'>NEWBIE: 1000ms</option>
 						<option value='900'>AVERAGE: 900ms s51</option>
@@ -174,6 +177,7 @@ const App = () => {
 					<span>{`Your level: `}</span>
 					<b>{level}</b>
 				</h2>
+				<Share url={'game.vmog.net/'} />
 			</div>
 
 			<div className='grid'>

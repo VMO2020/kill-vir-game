@@ -19,7 +19,8 @@
 		transform: translateX(-50%);
 		width: 100%;
 		max-width: $maxWidth;
-		height: 10%;
+		margin-top: 1em;
+		// height: 10%;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
@@ -36,12 +37,13 @@
 			h2 {
 				@include font-size(22px, 40px);
 				color: white;
+				margin: 0;
 			}
 
 			#score,
 			#time-left {
-				color: red;
-				background-color: rgba(254, 254, 254, 0.3);
+				color: $mainColor;
+				background-color: $background;
 				margin-left: 1em;
 				padding: 0 0.5em;
 				border: solid white 1px;
@@ -56,8 +58,8 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 100%;
-		max-width: 1200px;
-		height: 50%;
+		max-width: $maxWidth;
+		padding: 0 1em;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
@@ -80,7 +82,9 @@
 
 			label {
 				@include font-size(18px, 40px);
+				font-weight: 700;
 				color: white;
+				margin-right: 0.5em;
 				z-index: 200;
 			}
 			select {
@@ -88,7 +92,7 @@
 				color: white;
 				margin-left: 0.5em;
 				padding: 0.3em 0.4em;
-				background-color: rgba(254, 0, 0, 0.5);
+				background-color: $mainColor;
 				border: 2px solid white;
 				border-radius: 5px;
 				cursor: pointer;
@@ -104,20 +108,24 @@
 
 		.rules {
 			@include font-size(22px, 40px);
+			line-height: 1em;
 			color: red;
 			margin-top: 1em;
 			padding: 0.5em 1em;
-			background-color: rgba(254, 254, 254, 0.7);
+			width: 100%;
+			background-color: $background;
 			border-radius: 5px;
-			border: solid white 2px;
+			border: solid transparent 2px;
 			text-align: center;
 		}
 
 		.high-score {
 			@include font-size(22px, 40px);
+			line-height: 1.5em;
 			color: white;
 			padding: 0.5em 1em;
-			background-color: rgba(254, 0, 0, 0.7);
+			width: 100%;
+			background-color: $mainColor;
 			border-radius: 5px;
 			border: solid white 2px;
 			text-align: center;
@@ -202,7 +210,7 @@
 			display: inline-block;
 			color: white;
 			padding: 0.5em 2em;
-			background-color: rgba(254, 0, 0, 0.5);
+			background-color: $mainColor;
 			border-radius: 5px;
 			border: solid white 1px;
 			cursor: pointer;
@@ -242,7 +250,7 @@
 	}
 }
 
-// FOR DESKTOP
+// FOR TABLET
 @include mQ(768px) {
 	.container-game {
 		.start-board {

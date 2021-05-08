@@ -1,9 +1,26 @@
+// RESPONSIVE (VIEWPORT SIZES)
+$minWidth: 600px !default;
+$maxWidth: 1200px !default;
+
+// Basic Colors
+$Dark: #222831; // My Black: rgb(34,40,49)
+$MedDark: #393e46; // My Dark Gray: rgb(57,62,70)
+$MedLight: #8e8e90; // My Gray: Silver: rgb(142,142,144)
+$Light: #f7f7f7; // My White:(247,247,247)
+$Amazon: #ff9900;
+
+// COLORS FIXED
+$mainColor: rgba(255, 0, 0, 0.6);
+$mainDark: rgba(255, 0, 0, 0.8);
+$background: rgba(255, 255, 255, 0.7);
+
+// GENERAL SCSS
 body {
+	margin: 0 auto;
+	padding: 0;
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $maxWidth;
-	margin: 0 auto;
-	padding: 0;
 	height: 100%;
 	scroll-behavior: smooth;
 }
