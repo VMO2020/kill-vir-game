@@ -35,7 +35,7 @@
 			// border: solid white 1px;
 
 			h2 {
-				@include font-size(22px, 40px);
+				@include font-size(21px, 40px);
 				color: white;
 				margin: 0;
 			}
@@ -44,7 +44,7 @@
 			#time-left {
 				color: $mainColor;
 				background-color: $background;
-				margin-left: 1em;
+				margin-left: 0.3em;
 				padding: 0 0.5em;
 				border: solid white 1px;
 				border-radius: 5px;

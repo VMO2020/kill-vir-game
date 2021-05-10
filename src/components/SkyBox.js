@@ -7,12 +7,12 @@ export function SkyBox() {
 	const loader = new CubeTextureLoader();
 	// The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
 	const texture = loader.load([
-		'/images/1.jpg',
-		'/images/2.jpg',
-		'/images/3.jpg',
-		'/images/4.jpg',
-		'/images/5.jpg',
-		'/images/6.jpg',
+		'/images1/Front.jpg',
+		'/images1/Back.jpg',
+		'/images1/Up.jpg',
+		'/images1/Down.jpg',
+		'/images1/Right.jpg',
+		'/images1/Left.jpg',
 	]);
 
 	// Set the scene background property to the resulting texture.
