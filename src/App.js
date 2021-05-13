@@ -178,6 +178,9 @@ const App = () => {
 					<b>{level}</b>
 				</h2>
 				<Share url={'game.vmog.net/'} />
+				<a href='https://vmog.net/' target='_blank' rel='noreferrer'>
+					Copyright © and game design by VMOG
+				</a>
 			</div>
 
 			<div className='grid'>
