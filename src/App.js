@@ -8,11 +8,11 @@ import { Share } from './components/Share';
 import { readData, writeData } from './helpers/localData';
 
 //Images
-import virus from './assets/virus1.png';
-import virus2 from './assets/virus2.png';
-import virus3 from './assets/virus3.png';
-import virus4 from './assets/virus4.png';
-import virus5 from './assets/virus5.png';
+import virus from './assets/images/virus1.png';
+import virus2 from './assets/images/virus2.png';
+import virus3 from './assets/images/virus3.png';
+import virus4 from './assets/images/virus4.png';
+import virus5 from './assets/images/virus5.png';
 
 // Styles
 import './app.scss';
