@@ -179,7 +179,7 @@ const App = () => {
 				</h2>
 				<Share url={'game.vmog.net/'} />
 				<a href='https://vmog.net/' target='_blank' rel='noreferrer'>
-					Copyright © and game design by VMOG
+					Copyright and game design by © VMOG
 				</a>
 			</div>
 
